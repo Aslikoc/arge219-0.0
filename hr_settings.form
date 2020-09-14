@@ -1,0 +1,17 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<form>
+	<Groupbox mold="3d" width="700px">
+		<Caption label="${TBLHRTRAINDEF}" />
+		<import fileName="genericNavigation" parameters="dataSourceName=TBLHRTRAINDEF,refresh=true,save=true,undo=true,insert=true,delete=true,navigation=false" />
+		<Table dataSourceName="TBLHRTRAINDEF" width="650px" height="300px">
+			<Columns sizable="boolean:true" menupopup="auto" >
+				<Column label="${TRAINNAME}" width="250px">
+					<TextField dataSourceName="TBLHRTRAINDEF" dataMember="TRAINNAME" />
+				</Column>
+				<Column label="${NOTES}" width="350px">
+					<TextField dataSourceName="TBLHRTRAINDEF" dataMember="NOTES" />
+				</Column>
+			</Columns>
+		</Table>
+	</Groupbox>
+</form>

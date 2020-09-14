@@ -1,0 +1,14 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<Hlayout spacing="0" class="valignMiddle">
+	<Image width="35px" height="35px" visible="boolean:P{refresh|true}" src="P{TEGSOFT_THEME}/tegsoft-refresh.png" dataSourceName="TBLHRSTUFF" dataSourceFunction="refresh" tooltiptext="${dataSourceButton.refresh.caption}" style="String:cursor:pointer" />
+	<Image width="35px" height="35px" visible="boolean:P{undo|true}" src="P{TEGSOFT_THEME}/tegsoft-undo.png" dataSourceName="TBLHRSTUFF" dataSourceFunction="undo" tooltiptext="${dataSourceButton.undo.caption}" style="String:cursor:pointer" />
+	<Image width="35px" height="35px" visible="boolean:P{insert|true}" src="P{TEGSOFT_THEME}/tegsoft-add.png" dataSourceName="TBLHRSTUFF" dataSourceFunction="insert" tooltiptext="${dataSourceButton.insert.caption}" style="String:cursor:pointer" />
+	<Image width="35px" height="35px" visible="boolean:P{delete|true}" src="P{TEGSOFT_THEME}/tegsoft-del.png" dataSourceName="TBLHRSTUFF" dataSourceFunction="delete" tooltiptext="${dataSourceButton.delete.caption}" style="String:cursor:pointer" />
+	<importExportButton width="35px" height="35px"  visible="boolean:P{importExport|true}" importExportDataSourceName="TBLHRSTUFF" />
+	<image width="35px" height="35px" id="newUser" tooltiptext="${copyUser}" src="P{TEGSOFT_THEME}/tegsoft-copy.png" style="String:cursor:pointer">
+		<parameterEventListener eventName="onClick" methodName="com.tegsoft.tobe.ui.User.copyUser" />
+	</image>
+	<Div width="100px" height="35px" visible="boolean:P{save|true}" style="String:margin-left:2px;cursor:pointer">
+		<SaveLabel visible="boolean:P{save|true}" width="100px" height="35px" parameter0="TBLHRSTUFF" value="${dataSourceButton.save.caption}" dataSourceName="TBLHRSTUFF" dataSourceFunction="save" tooltiptext="${dataSourceButton.save.caption}" style="String:cursor:pointer" />
+	</Div>
+</Hlayout>

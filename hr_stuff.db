@@ -1,0 +1,198 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<db>
+	<dataset name="TBLHRSTUFF" tableName="TBLHRSTUFF">
+		<dbColumn name="EMAILTYPE1" defaultValue="work" />
+		<dbColumn name="EMAILTYPE2" defaultValue="home" />
+		<dbColumn name="EMAILTYPE3" defaultValue="other" />
+		<dbColumn name="EMAILTYPE4" defaultValue="other" />
+		<dbColumn name="PHONETYPE1" defaultValue="home" />
+		<dbColumn name="PHONETYPE2" defaultValue="work" />
+		<dbColumn name="PHONETYPE3" defaultValue="mobile" />
+		<dbColumn name="PHONETYPE4" defaultValue="other" />
+		<dbColumn name="NATINALITY" defaultValue="T.C." />
+	</dataset>
+	<dataSource name="TBLHRSTUFF" datasetName="TBLHRSTUFF" />
+	<command datasetName="TBLHRSTUFF" name="TBLHRSTUFF" parameter0="SELECT UNITUID,STUFFID,FIRSTNAME,MIDDLENAME,LASTNAME,EMAILTYPE1,EMAIL1,EMAILTYPE2,EMAIL2,EMAILTYPE3,EMAIL3,EMAILTYPE4,EMAIL4,PHONETYPE1,PHONE1,PHONETYPE2,PHONE2,PHONETYPE3,PHONE3,PHONETYPE4,PHONE4,NOTES,BIRTHDAY,ANNIVERSARY,HOMEADDR,SEX,BLOADTYPE,PREVLASTNAME,CIVILNUMBER,IDPROVINCE,IDCITY,MILSTATUS,SECONDARYID,MARITALSTATUS,NATINALITY,DRIVERLICENSE,MODUID,MODDATE">
+		<append text=" FROM TBLHRSTUFF WHERE UNITUID={UNITUID} " />
+		<ComponentDbCondition parameter0="searchTBLHRSTUFF" parameter1="getText" parameter2="NotNull" parameter3="ignored">
+		    <append text="AND (" />
+			<append text="UPPER(FIRSTNAME) LIKE UPPER(" />
+			<ComponentDbParameter parameter0="searchTBLHRSTUFF" parameter1="getText" prefix="%" suffix="%" />
+			<append text=")" />
+			<append text="OR UPPER(LASTNAME) LIKE UPPER(" />
+			<ComponentDbParameter parameter0="searchTBLHRSTUFF" parameter1="getText" prefix="%" suffix="%" />
+			<append text="))" />
+		</ComponentDbCondition>
+		<append text=" ORDER BY FIRSTNAME,MIDDLENAME,LASTNAME " />
+	</command>
+
+	<dataset name="TBLHRSTUFF_PHOTO" tableName="TBLHRSTUFF" />
+	<dataSource name="TBLHRSTUFF_PHOTO" datasetName="TBLHRSTUFF_PHOTO" parentDataSource="TBLHRSTUFF" />
+	<command datasetName="TBLHRSTUFF_PHOTO" name="TBLHRSTUFF_PHOTO">
+		<append text="SELECT PHOTO " />
+		<append text="FROM TBLHRSTUFF WHERE 1=1 AND UNITUID={UNITUID} AND STUFFID=" />
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+	</command>
+
+	<dataset name="TBLHRRELATIONS" tableName="TBLHRRELATIONS">
+		<dbColumn name="STUFFID">
+			<method name="setDefaultValue">
+				<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+			</method>
+		</dbColumn>
+	</dataset>
+	<dataSource name="TBLHRRELATIONS" datasetName="TBLHRRELATIONS" parentDataSource="TBLHRSTUFF" />
+	<command datasetName="TBLHRRELATIONS" name="TBLHRRELATIONS">
+		<append text="SELECT * " />
+		<append text="FROM TBLHRRELATIONS WHERE 1=1 AND UNITUID={UNITUID} AND STUFFID=" />
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+		<append text=" ORDER BY KEEPING DESC,FULLNAME " />
+	</command>
+
+	<dataset name="TBLHRTRAINDEF" tableName="TBLHRTRAINDEF" />
+	<dataSource name="TBLHRTRAINDEF" datasetName="TBLHRTRAINDEF" />
+	<command datasetName="TBLHRTRAINDEF" name="TBLHRTRAINDEF">
+		<append text="SELECT * FROM TBLHRTRAINDEF WHERE 1=1 AND UNITUID={UNITUID}  ORDER BY TRAINNAME " />
+	</command>
+
+	<dataset name="DATAEMAILTYPES">
+		<dbColumn name="CODE" />
+		<dbColumn name="VALUE" />
+		<newRow CODE="work" VALUE="${EMailType.work}" />
+		<newRow CODE="home" VALUE="${EMailType.home}" />
+		<newRow CODE="other" VALUE="${EMailType.other}" />
+	</dataset>
+	<dataSource name="DATAEMAILTYPES" datasetName="DATAEMAILTYPES" />
+
+	<dataset name="TBLHRTRAINING" tableName="TBLHRTRAINING">
+		<dbColumn name="STUFFID">
+			<method name="setDefaultValue">
+				<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+			</method>
+		</dbColumn>
+	</dataset>
+	<dataSource name="TBLHRTRAINING" datasetName="TBLHRTRAINING" parentDataSource="TBLHRSTUFF" />
+	<command datasetName="TBLHRTRAINING" name="TBLHRTRAINING">
+		<append text="SELECT * " />
+		<append text="FROM TBLHRTRAINING WHERE 1=1 AND UNITUID={UNITUID} AND STUFFID=" />
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+		<append text="ORDER BY TRAINDATE" />
+	</command>
+
+	<dataset name="TBLCRMPHONETYPE" tableName="TBLCRMPHONETYPE">
+		<dbColumn name="VALUE" />
+	</dataset>
+	<dataSource name="TBLCRMPHONETYPE" datasetName="TBLCRMPHONETYPE" />
+	<command datasetName="TBLCRMPHONETYPE" name="TBLCRMPHONETYPE" parameter0="SELECT CODE,NAME AS VALUE FROM TBLCRMPHONETYPE WHERE 1=1 AND UNITUID={UNITUID} ORDER BY NAME" />
+
+	<dataset name="DATASEX">
+		<dbColumn name="CODE" />
+		<dbColumn name="VALUE" />
+		<newRow CODE="male" VALUE="${male}" />
+		<newRow CODE="female" VALUE="${female}" />
+	</dataset>
+	<dataSource name="DATASEX" datasetName="DATASEX" />
+
+	<dataset name="DATAMILSTATUS">
+		<dbColumn name="CODE" />
+		<dbColumn name="VALUE" />
+		<newRow CODE="na" VALUE="${na}" />
+		<newRow CODE="done" VALUE="${done}" />
+		<newRow CODE="deferred" VALUE="${deferred}" />
+	</dataset>
+	<dataSource name="DATAMILSTATUS" datasetName="DATAMILSTATUS" />
+
+	<dataset name="DATAMARITALSTATUS">
+		<dbColumn name="CODE" />
+		<dbColumn name="VALUE" />
+		<newRow CODE="single" VALUE="${single}" />
+		<newRow CODE="married" VALUE="${married}" />
+		<newRow CODE="divorced" VALUE="${divorced}" />
+		<newRow CODE="widowed" VALUE="${widowed}" />
+	</dataset>
+	<dataSource name="DATAMARITALSTATUS" datasetName="DATAMARITALSTATUS" />
+
+	<dataset name="DATARELTYPE">
+		<dbColumn name="CODE" />
+		<dbColumn name="VALUE" />
+		<newRow CODE="father" VALUE="${father}" />
+		<newRow CODE="mother" VALUE="${mother}" />
+		<newRow CODE="husband" VALUE="${husband}" />
+		<newRow CODE="wife" VALUE="${wife}" />
+		<newRow CODE="son" VALUE="${son}" />
+		<newRow CODE="daughter" VALUE="${daughter}" />
+		<newRow CODE="brother" VALUE="${brother}" />
+		<newRow CODE="sister" VALUE="${sister}" />
+		<newRow CODE="grandfather" VALUE="${grandfather}" />
+		<newRow CODE="grandmother" VALUE="${grandmother}" />
+	</dataset>
+	<dataSource name="DATARELTYPE" datasetName="DATARELTYPE" />
+
+	<dataset name="TBLHRUSERS" tableName="TBLHRUSERS" />
+	<dataSource name="TBLHRUSERS" datasetName="TBLHRUSERS" />
+	<command datasetName="TBLHRUSERS" name="TBLHRUSERS" parameter0="SELECT * FROM TBLHRUSERS WHERE 1=1 AND UNITUID={UNITUID} ORDER BY STUFFID,UID" />
+
+	<dataset name="unAssignedTBLCCSKILLUSER" tableName="VIEWUSERS">
+		<dbColumn name="USERCODE0" />
+		<dbColumn name="USERCODE1" />
+	</dataset>
+	<dataSource name="unAssignedTBLCCSKILLUSER" datasetName="unAssignedTBLCCSKILLUSER" parentDataSource="TBLHRSTUFF" />
+	<command datasetName="unAssignedTBLCCSKILLUSER" name="unAssignedTBLCCSKILLUSER" parameter0="SELECT UID,USERNAME,SURNAME,'(' AS USERCODE0,USERCODE,')' AS USERCODE1 FROM VIEWUSERS WHERE 1=1 AND UNITUID={UNITUID}">
+		<ComponentDbCondition componentId="filterUnAssignedTBLCCSKILLUSER" operator="NotNull">
+			<append text="AND (UPPER(USERNAME) LIKE UPPER(" />
+			<ComponentDbParameter parameter0="filterUnAssignedTBLCCSKILLUSER" parameter1="getValue" prefix="%" suffix="%" />
+			<append text=")" />
+			<append text="OR UPPER(SURNAME) LIKE UPPER(" />
+			<ComponentDbParameter parameter0="filterUnAssignedTBLCCSKILLUSER" parameter1="getValue" prefix="%" suffix="%" />
+			<append text=")" />
+			<append text="OR UPPER(USERCODE) LIKE UPPER(" />
+			<ComponentDbParameter parameter0="filterUnAssignedTBLCCSKILLUSER" parameter1="getValue" prefix="%" suffix="%" />
+			<append text=")" />
+			<append text=")" />
+		</ComponentDbCondition>
+		<append text="AND UID NOT IN (SELECT UID FROM TBLHRUSERS WHERE STUFFID=" />
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+		<append text=" AND UNITUID={UNITUID}) ORDER BY USERNAME,SURNAME" />
+	</command>
+
+	<dataset name="assignedTBLCCSKILLUSER" tableName="VIEWUSERS">
+		<dbColumn name="USERCODE0" />
+		<dbColumn name="USERCODE1" />
+	</dataset>
+	<dataSource name="assignedTBLCCSKILLUSER" datasetName="assignedTBLCCSKILLUSER" parentDataSource="TBLHRSTUFF" />
+	<command datasetName="assignedTBLCCSKILLUSER" name="assignedTBLCCSKILLUSER" parameter0="SELECT UID,USERNAME,SURNAME,'(' AS USERCODE0,USERCODE,')' AS USERCODE1 FROM VIEWUSERS WHERE 1=1 AND UNITUID={UNITUID}">
+		<command datasetName="assignedTBLCCSKILLUSER" name="assignedTBLCCSKILLUSER" parameter0="SELECT UID,USERNAME,SURNAME,'(' AS USERCODE0,USERCODE,')' AS USERCODE1 FROM VIEWUSERS WHERE 1=1 AND UNITUID={UNITUID}">
+			<ComponentDbCondition componentId="filterAssignedTBLCCSKILLUSER" operator="NotNull">
+				<append text="AND (UPPER(USERNAME) LIKE UPPER(" />
+				<ComponentDbParameter parameter0="filterAssignedTBLCCSKILLUSER" parameter1="getValue" prefix="%" suffix="%" />
+				<append text=")" />
+				<append text="OR UPPER(SURNAME) LIKE UPPER(" />
+				<ComponentDbParameter parameter0="filterAssignedTBLCCSKILLUSER" parameter1="getValue" prefix="%" suffix="%" />
+				<append text=")" />
+				<append text="OR UPPER(USERCODE) LIKE UPPER(" />
+				<ComponentDbParameter parameter0="filterAssignedTBLCCSKILLUSER" parameter1="getValue" prefix="%" suffix="%" />
+				<append text=")" />
+				<append text=")" />
+			</ComponentDbCondition>
+			<append text="AND UID  IN (SELECT UID FROM TBLHRUSERS WHERE STUFFID=" />
+			<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+			<append text=" AND UNITUID={UNITUID}) ORDER BY USERNAME,SURNAME" />
+		</command>
+		<append text="AND UID IN (SELECT UID FROM TBLHRUSERS WHERE STUFFID=" />
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+		<append text=" AND UNITUID={UNITUID}) ORDER BY USERNAME,SURNAME" />
+	</command>
+
+	<command name="assignUser" parameter0="INSERT INTO TBLHRUSERS (UNITUID,STUFFID,UID,MODUID,MODDATE) VALUES({UNITUID},">
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+		<append text="," />
+		<ComponentDbParameter parameter0="unAssignedTBLCCSKILLUSER" parameter1="methodIgnored" />
+		<append text=",{UID},{NOW})" />
+	</command>
+
+	<command name="removeUser" parameter0="DELETE FROM TBLHRUSERS WHERE UNITUID={UNITUID} AND STUFFID=">
+		<DataSourceDbParameter parameter0="TBLHRSTUFF" parameter1="STUFFID" />
+		<append text="AND UID=" />
+		<ComponentDbParameter parameter0="assignedTBLCCSKILLUSER" parameter1="methodIgnored" />
+	</command>
+</db>

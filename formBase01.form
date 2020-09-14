@@ -1,0 +1,61 @@
+<?xml version="1.0"  encoding="utf-8" standalone="yes"?><!DOCTYPE xml>
+<form vflex="1" width="100%">
+	<Borderlayout vflex="1" width="100%">
+		<West size="P{westSize|300px}" splittable="boolean:true" collapsible="boolean:true">
+			<Borderlayout vflex="1" width="100%">
+				<Center class="formbaseParameters">
+					<Vlayout width="100%" spacing="3px" vflex="1">
+						<Grid width="100%" class="formbaseFilterGrid">
+							<Columns>
+								<Column width="100%" />
+							</Columns>
+							<Rows>
+								<clickableGroup groupTitle="${search}" class="formbaseFilterGroup" />
+								<Row style="String:padding:0px;">
+									<Window width="100%" style="String:">
+										<import fileName="P{APPLICATION}_filter" />
+									</Window>
+								</Row>
+							</Rows>
+						</Grid>
+						<import fileName="P{APPLICATION}_operations" />
+						<Div class="formbaseResultsHeaderDiv">
+							<Grid width="100%" class="formbaseResultsHeaderGrid">
+								<Columns>
+									<Column width="30%" />
+									<Column width="70%" align="right" />
+								</Columns>
+								<Rows>
+									<Row>
+										<Cell rowspan="int:2">
+											<Label value="${results}" />
+										</Cell>
+										<Cell rowspan="int:3">
+											<import fileName="navigationOnly" parameters="dataSourceName=P{dataSourceName}" />
+										</Cell>
+									</Row>
+									<Row>
+									</Row>
+									<Row>
+										<NumberOfRecordsLabel style="String:font-family: 'Nunito Sans', Helvetica, Arial, serif;font-weight: 700;font-style: normal;font-size: 14.0px;line-height: 19.0px;" parameter0="P{dataSourceName}" />
+									</Row>
+								</Rows>
+							</Grid>
+						</Div>
+						<import fileName="P{APPLICATION}_results" parameters="pagingId=P{pagingId}" />
+					</Vlayout>
+				</Center>
+			</Borderlayout>
+		</West>
+		<Center style="String:border:0px">
+			<Borderlayout vflex="1" width="100%">
+				<Center style="String:border:0px">
+					<Window width="100%" vflex="1">
+						<Div width="100%" height="3px" />
+						<import fileName="P{APPLICATION}_details" />
+					</Window>
+				</Center>
+			</Borderlayout>
+		</Center>
+	</Borderlayout>
+</form>

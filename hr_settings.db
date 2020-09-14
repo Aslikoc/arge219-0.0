@@ -1,0 +1,7 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<db>
+	<dataset name="TBLHRTRAINDEF" tableName="TBLHRTRAINDEF" />
+	<dataSource name="TBLHRTRAINDEF" datasetName="TBLHRTRAINDEF" />
+	<command datasetName="TBLHRTRAINDEF" name="TBLHRTRAINDEF" parameter0="SELECT * FROM TBLHRTRAINDEF WHERE 1=1 AND UNITUID={UNITUID} ORDER BY TRAINNAME" />
+
+</db>

@@ -1,0 +1,13 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<Grid width="100%" height="100%">
+	<Columns>
+		<Column width="50%" />
+		<Column width="50%" />
+	</Columns>
+	<Rows>
+		<Row>
+			<Label componentType="filterLabel" value="${srcENTRY.title}" />
+			<TextField componentType="filterLabel" id="filterTBLHRSTUFF" childDataSource="TBLHRSTUFF" />
+		</Row>
+	</Rows>
+</Grid>

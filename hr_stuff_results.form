@@ -1,0 +1,8 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<Table dataSourceName="TBLHRSTUFF" width="100%" height="300px">
+						<Columns sizable="boolean:true" menupopup="auto">
+							<Column label="String:${FIRSTNAME.caption}" width="100%">
+								<Label dataSourceName="TBLHRSTUFF" dataMember="FIRSTNAME,MIDDLENAME,LASTNAME" />
+							</Column>
+						</Columns>
+					</Table>

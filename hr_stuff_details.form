@@ -1,0 +1,339 @@
+<?xml version="1.0"  encoding="utf-8"  standalone="yes"?><!DOCTYPE xml>
+<form>
+
+<Tabbox>
+					<Tabs>
+						<Tab label="${TBLHRSTUFF.details}" />
+						<Tab label="${TBLHRSTUFF2.title}" />
+						<Tab label="${TBLHRRELATIONS.title}" />
+						<Tab label="${TBLHRTRAINING}" />
+						<Tab label="${TBLHRUSERS}" />
+					</Tabs>
+					<Tabpanels>
+						<Tabpanel >
+					
+							
+								<Grid width="100%">
+
+									<Columns >
+										<Column width="42.5%" />
+										<Column width="42.5%" />
+										<Column width="15%" />
+										
+									</Columns>
+
+									<Rows>
+										<Row >
+										
+
+											<Label width="100%" value="${FIRSTNAME.caption}" />
+											<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="FIRSTNAME"
+											height="30px"  />
+										<UpdateImageButton src="P{TEGSOFT_THEME}/tegsoft-download2.png" width="100%" fileDataSourceName="TBLHRSTUFF" fileDataColumnName="PHOTO" style="String:cursor:pointer " />
+											
+										</Row>
+										<Row style="position:relative; overflow:visible;">
+											<Label width="100%" value="${MIDDLENAME.caption}" />
+											<TextField width="100%" height="30px"
+												dataSourceName="TBLHRSTUFF" dataMember="MIDDLENAME" />
+
+
+							<Image dataSourceName="TBLHRSTUFF_PHOTO" dataMember="PHOTO" width="98%"
+							style="background-color:white; height:67px; position:absolute;
+							top:0px;" align="right" />
+											
+						
+										</Row>
+										<Row>
+											<Label width="100%" value="${LASTNAME.caption}" />
+											<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="LASTNAME" height="30px" />
+											<Label/>
+											
+
+										</Row>
+									</Rows>
+							
+								</Grid>
+							
+			
+				
+								
+						
+							<Grid width="100%">
+								<Columns >
+									<Column label="${PersonalGroup.title} " width="25%" style="border-right:none;"/>
+									<Column width="25%" style="border-left:none;"/>
+									<Column width="25%" style="border-left:none; "/>
+									<Column width="25%"  style="border-left:none;"/>
+								</Columns>
+								<Rows>
+									<Row>
+
+										<Label width="100px" value="${BIRTHDAY.caption}" />
+										<DateField width="100%" dataSourceName="TBLHRSTUFF" dataMember="BIRTHDAY" />
+										<Label width="100%" value="${ANNIVERSARY.caption}" />
+										<DateField width="100%" dataSourceName="TBLHRSTUFF" dataMember="ANNIVERSARY" />
+									</Row>
+									<Row>
+										<Label width="100%" value="${SEX.caption}" />
+										<ComboBox width="100%"
+											dataSourceName="TBLHRSTUFF" dataMember="SEX" bindingProperty="SelectedIndex" listDataSourceName="DATASEX" listDataMember="VALUE" listBindingProperty="CODE"  />
+										<Label width="100%" value="${BLOADTYPE.caption}" />
+										<TextField dataSourceName="TBLHRSTUFF" width="100%" dataMember="BLOADTYPE" />
+									</Row>
+									<Row>
+										<Label width="100%" value="${PREVLASTNAME.caption}" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="PREVLASTNAME" />
+										<Label width="100%" value="${CIVILNUMBER.caption}" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="CIVILNUMBER"/>
+									</Row>
+									<Row>
+										<Label width="100%" value="${IDPROVINCE.caption}" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="IDPROVINCE" />
+										<Label width="100%" value="${IDCITY.caption}" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="IDCITY"/>
+									</Row>
+									<Row>
+										<Label width="100%" value="${MILSTATUS.caption}" />
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="MILSTATUS" bindingProperty="SelectedIndex" listDataSourceName="DATAMILSTATUS" listDataMember="VALUE" listBindingProperty="CODE" />
+										<Label width="100%" value="${MARITALSTATUS.caption}" />
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="MARITALSTATUS" bindingProperty="SelectedIndex" listDataSourceName="DATAMARITALSTATUS" listDataMember="VALUE" listBindingProperty="CODE" />
+									</Row>
+									<Row>
+										<Label width="100%" value="${NATINALITY.caption}" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="NATINALITY"/>
+										<Label width="100%" value="${DRIVERLICENSE.caption}" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="DRIVERLICENSE"/>
+									</Row>
+									<Row>
+										<Label width="100%" value="${STARTDATE.caption}" />
+										<DateField width="100%" dataSourceName="TBLHRSTUFF" dataMember="STARTDATE" />
+										<Label width="100%" value="${LIVINGDATE.caption}" />
+										<DateField width="100%" dataSourceName="TBLHRSTUFF" dataMember="LIVINGDATE" />
+									</Row>
+								</Rows>
+							</Grid>
+						</Tabpanel>
+						<Tabpanel>
+							<Label/>
+							<Grid>
+								<Columns>
+									<Column label="${EMailGroup.title}" style="border-right:none;" width="25%" />
+									<Column width="25%" style="border-left:none;"  />
+									<Column width="25%" style="border-left:none;" />
+									<Column width="25%" style="border-left:none;"/>
+								</Columns>
+								<Rows>
+									<Row>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAILTYPE1" bindingProperty="SelectedIndex" listDataSourceName="DATAEMAILTYPES" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true"/>
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAIL1" />
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAILTYPE2" bindingProperty="SelectedIndex" listDataSourceName="DATAEMAILTYPES" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true"/>
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAIL2" />
+									</Row>
+									<Row>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAILTYPE3" bindingProperty="SelectedIndex" listDataSourceName="DATAEMAILTYPES" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAIL3"/>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAILTYPE4" bindingProperty="SelectedIndex" listDataSourceName="DATAEMAILTYPES" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true" />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="EMAIL4"  />
+									</Row>
+								</Rows>
+							</Grid>
+							<Label />
+							<Grid>
+								<Columns>
+									<Column label="${PhoneGroup.title}" width="25%" style="border-right:none;"  />
+									<Column width="25%" style="border-left:none;"/>
+									<Column width="25%" style="border-left:none;"/>
+									<Column width="25%" style="border-left:none;"/>
+								</Columns>
+								<Rows>
+									<Row>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONETYPE1" bindingProperty="SelectedIndex" listDataSourceName="TBLCRMPHONETYPE" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true"  />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONE1"/>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONETYPE2" bindingProperty="SelectedIndex" listDataSourceName="TBLCRMPHONETYPE" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true"  />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONE2"/>
+									</Row>
+									<Row>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONETYPE3" bindingProperty="SelectedIndex" listDataSourceName="TBLCRMPHONETYPE" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true"  />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONE3"/>
+										<ComboBox width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONETYPE4" bindingProperty="SelectedIndex" listDataSourceName="TBLCRMPHONETYPE" listDataMember="VALUE" listBindingProperty="CODE" inplace="boolean:true"  />
+										<TextField width="100%" dataSourceName="TBLHRSTUFF" dataMember="PHONE4" />
+									</Row>
+									<Row>
+										<Label width="100%" value="${HOMEADDR.caption}" />
+										<TextField width="100%" rows="int:6" cols="int:25" dataSourceName="TBLHRSTUFF" dataMember="HOMEADDR"  />
+										<Label width="100px" value="${NOTES.caption}" />
+										<TextField width="100%" rows="int:6" cols="int:25" dataSourceName="TBLHRSTUFF" dataMember="NOTES"  />
+									</Row>
+								</Rows>
+							</Grid>
+						</Tabpanel>
+						<Tabpanel>
+							<import fileName="dataSourceNavigation" parameters="dataSourceName=TBLHRRELATIONS" width="100%" />
+
+							<Table dataSourceName="TBLHRRELATIONS" width="100%">
+
+								<Columns menupopup="auto">
+
+									<Column label="String:${RELTYPE.caption}" width="100%">
+										<ComboBox width="100%" dataSourceName="TBLHRRELATIONS" dataMember="RELTYPE" bindingProperty="SelectedIndex" listDataSourceName="DATARELTYPE" listDataMember="VALUE" listBindingProperty="CODE" />
+									</Column>
+									<Column label="String:${FULLNAME.caption}" width="100%">
+										<TextField dataSourceName="TBLHRRELATIONS" width="100%" dataMember="FULLNAME" />
+									</Column>
+									<Column label="String:${CIVILNUMBER.caption}" width="100%">
+										<TextField dataSourceName="TBLHRRELATIONS" width="100%" dataMember="CIVILNUMBER" />
+									</Column>
+									<Column label="String:${KEEPING.caption}" width="100%">
+										<Checkbox dataSourceName="TBLHRRELATIONS" width="100%" dataMember="KEEPING" bindingProperty="Checked" />
+									</Column>
+									<Column label="String:${NOTES.caption}" width="100%">
+										<TextField dataSourceName="TBLHRRELATIONS" width="100%" dataMember="NOTES" />
+									</Column>
+								</Columns>
+							</Table>
+						</Tabpanel>
+						<Tabpanel>
+							<Hbox>
+								<Vbox>
+									<import fileName="dataSourceNavigation" parameters="dataSourceName=TBLHRTRAINING" />
+									<Table dataSourceName="TBLHRTRAINING" width="100%">
+										<Columns sizable="boolean:true" menupopup="auto">
+											<Column label="String:${TRAINTYPE}" width="100%">
+												<ComboBox dataSourceName="TBLHRTRAINING" dataMember="TRAINTYPE" bindingProperty="SelectedIndex" listDataSourceName="TBLHRTRAINDEF" width="100%" listDataMember="TRAINNAME" listBindingProperty="TRAINTYPE" disabled="boolean:true" />
+											</Column>
+										</Columns>
+									</Table>
+								</Vbox>
+								
+							</Hbox>
+							<Grid>
+									<Columns>
+										<Column width="25%" />
+										<Column width="25%" />
+										<Column width="25%" />
+										<Column width="25%" />
+									</Columns>
+
+									<Rows>
+										<Row>
+											<Label width="100%" value="${TRAINTYPE}" />
+											<ComboBox width="100%" dataSourceName="TBLHRTRAINING" dataMember="TRAINTYPE" bindingProperty="SelectedIndex" listDataSourceName="TBLHRTRAINDEF" listDataMember="TRAINNAME" listBindingProperty="TRAINTYPE" />
+											<Label width="100%" value="${INHOUSE}" />
+											<Checkbox dataSourceName="TBLHRTRAINING" width="100%" dataMember="INHOUSE" bindingProperty="Checked" />
+										</Row>
+										<Row>
+											<Label width="100%" value="${TRAINDATE}" />
+											<DateField width="100%" dataSourceName="TBLHRTRAINING" dataMember="TRAINDATE" />
+											<Label width="100%" value="${DURATION}" />
+											<TextField width="100%" dataSourceName="TBLHRTRAINING" dataMember="DURATION"  />
+										</Row>
+										<Row>
+											<Label width="100%" value="${LOCATION}" />
+											<TextField width="100%" dataSourceName="TBLHRTRAINING" dataMember="LOCATION"  />
+											<Label width="100%" value="${TRAINER}" />
+											<TextField width="100%" dataSourceName="TBLHRTRAINING" dataMember="TRAINER"  />
+										</Row>
+										<Row>
+											<Label width="100%" value="${GRADE}" />
+											<TextField width="100%" dataSourceName="TBLHRTRAINING" dataMember="GRADE" />
+											<Label width="100%" value="${PASS}" />
+											<Checkbox dataSourceName="TBLHRTRAINING" dataMember="PASS" width="100%" bindingProperty="Checked" />
+										</Row>
+										<Row>
+											<Label width="100%" value="${CERT}" />
+											<TextField width="100%" dataSourceName="TBLHRTRAINING" dataMember="CERT"  />
+											<Label width="100%" value="${EXPIREDATE}" />
+											<DateField width="100%" dataSourceName="TBLHRTRAINING" dataMember="EXPIREDATE" />
+										</Row>
+										<Row>
+											<Label width="100%" value="${NOTES}" />
+											<TextField width="100%" rows="int:6" cols="int:25" dataSourceName="TBLHRTRAINING" dataMember="NOTES" />
+											<Label style="background-color:white; border:none;"/>
+											<Label style="background-color:grey; border:none;"/>
+										</Row>
+									</Rows>
+									<propertyToggler propertyName="visible" checkRowCountDataSourceName="TBLHRTRAINING" />
+								</Grid>
+						</Tabpanel>
+						<Tabpanel>
+							<form>
+	<Grid width="100%">
+		
+		<Rows>
+			<Row>
+
+	<assignmentLayout  width="100%">
+					<Grid width="100%">
+						<Columns>
+							<Column width="20%" />
+							<Column width="80%" />
+						</Columns>
+						<Rows>
+							<Row>
+								<Label value="${filter}" />
+								<Textbox width="100%" id="filterUnAssignedTBLCCSKILLUSER" childDataSource="unAssignedTBLCCSKILLUSER" />
+							</Row>
+							
+						
+							<Row>
+								<Cell colspan="int:2">
+									<Listbox id="unAssignedTBLCCSKILLUSER" listDataSourceName="unAssignedTBLCCSKILLUSER" listBindingProperty="UID" width="100%" height="200px">
+										<Listhead>
+											<Listheader label="${unAssignedUsers}" listDataMember="USERNAME,SURNAME,USERCODE0,USERCODE,USERCODE1"/>
+										</Listhead>
+									</Listbox>
+								</Cell>
+							</Row>
+						</Rows>
+					</Grid>
+					<Image style="String:cursor:pointer;" src="P{TEGSOFT_THEME}/tegsoft-box-add.png">
+									<propertyToggler propertyName="visible" checkRowCountDataSourceName="unAssignedTBLCCSKILLUSER" />
+									<eventListener eventName="onClick" commandName="assignUser" dataSourceCommand="String:refresh:unAssignedTBLCCSKILLUSER,refresh:assignedTBLCCSKILLUSER" />
+								</Image>
+								<Image style="String:cursor:pointer;" src="P{TEGSOFT_THEME}/tegsoft-box-addall.png">
+									<propertyToggler propertyName="visible" checkRowCountDataSourceName="unAssignedTBLCCSKILLUSER" />
+									<eventListener eventName="onClick" forEachComponentItem="String:unAssignedTBLCCSKILLUSER:assignUser" dataSourceCommand="String:refresh:unAssignedTBLCCSKILLUSER,refresh:assignedTBLCCSKILLUSER" />
+								</Image>
+								<Image style="String:cursor:pointer;" src="P{TEGSOFT_THEME}/tegsoft-box-removeall.png">
+									<propertyToggler propertyName="visible" checkRowCountDataSourceName="assignedTBLCCSKILLUSER" />
+									<eventListener eventName="onClick" forEachComponentItem="String:assignedTBLCCSKILLUSER:removeUser" dataSourceCommand="String:refresh:unAssignedTBLCCSKILLUSER,refresh:assignedTBLCCSKILLUSER" />
+								</Image>
+								<Image style="String:cursor:pointer;" src="P{TEGSOFT_THEME}/tegsoft-box-remove.png">
+									<propertyToggler propertyName="visible" checkRowCountDataSourceName="assignedTBLCCSKILLUSER" />
+									<eventListener eventName="onClick" commandName="removeUser" dataSourceCommand="String:refresh:unAssignedTBLCCSKILLUSER,refresh:assignedTBLCCSKILLUSER" />
+								</Image>
+					<Grid width="100%">
+						<Columns>
+							<Column width="20%" />
+							<Column width="80%" />
+						</Columns>
+						<Rows>
+							<Row>
+								<Label value="${filter}" />
+								<Textbox width="100%" id="filterAssignedTBLCCSKILLUSER" childDataSource="assignedTBLCCSKILLUSER" />
+							</Row>
+							
+						
+							<Row>
+								<Cell colspan="int:2">
+									<Listbox id="assignedTBLCCSKILLUSER"  listDataSourceName="assignedTBLCCSKILLUSER" listBindingProperty="UID" width="100%" height="200px">
+										<Listhead>
+											<Listheader label="${asVIEWUSERS}" listDataMember="USERNAME,SURNAME,USERCODE0,USERCODE,USERCODE1"/>
+										</Listhead>
+									</Listbox>
+								</Cell>
+							</Row>
+						</Rows>
+					</Grid>
+				</assignmentLayout>
+			</Row>
+		</Rows>
+	</Grid>
+</form>	</Tabpanel>
+
+					</Tabpanels>
+					<propertyToggler propertyName="visible" checkRowCountDataSourceName="TBLHRSTUFF" />
+				</Tabbox>
+				
+				</form>
